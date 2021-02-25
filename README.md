@@ -83,17 +83,14 @@ data$casePredictedLoci <- predict(modelCases, data)
 data
 
 ## make the plot for PD
+set.seed(42)
 basicPlot <- ggplot(data, aes(cases_corrected, loci, label=year)) + geom_point() + geom_smooth(method = "lm", se = T, fullrange = T)
 formattedPlot <- basicPlot + theme_bw() + ylab("Number of PD Loci") + xlab("Number of PD Cases") + xlim(0,102000) 
-
 formattedPlotanno <- formattedPlot + geom_text(hjust=-1, vjust=1)
-
-formattedPlotanno <- formattedPlot + geom_text(aes(label = rownames(df)),
-              size = 3.5)
-
+exportPlotPD <- formattedPlot + geom_text_repel(aes(label = data$year), box.padding = 2.5, size = 5, hjust = -1) 
 
 ## save plot
-ggsave(filename = "lociPlots_PD.png", plot = exportPlot)
+ggsave(filename = "lociPlots_PD_new.png", plot = exportPlotPD)
 
 
 
