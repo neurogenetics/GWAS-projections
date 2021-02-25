@@ -16,17 +16,90 @@ Goal: Prediction of the number of GWAS loci in future neurodegenerative disease 
 
 #### 1) getting data...
 
-Alzheimer:
 
+##### Alzheimer:
 
+```
+Notes: 
+- Proxy cases are counted in cases_corrected as 1/2 case
+- Of course always the discussion AD vs dementia vs proxy dementia etc. that is ignored here
 
-Parkinson:
+```
+
+| First Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
+|--------------|------|------|--------|---------|-----------------|----------|------|
+| Lambert      | 19734903   | 2009 | 6010   | 0       | 6010            | 8625     | 3    |
+| Harold       | 19734902   | 2009 | 5964   | 0       | 5964            | 10188    | 3    |
+| Hollingworth | 22005930   | 2011 | 19870  | 0       | 19870           | 39846    | 10   |
+| Naj          | 21460841   | 2011 | 19490  | 0       | 19490           | 36770    | 10   |
+| Lambert      | 24162737   | 2013 | 25580  | 0       | 25580           | 48466    | 19   |
+| Kunkle       | 30820047   | 2019 | 35,274 | 0       | 35274           | 59,163   | 25   |
+| Jansen       | 30617256   | 2019 | 71,880 | 30000   | 86880           | 383,378  | 29   |
+| Bellenguez   | 20200659v2*   | 2020 | 111326 | 30000   | 126326          | 677663   | 75   |
+
+* => medrxiv preprint... https://www.medrxiv.org/content/10.1101/2020.10.01.20200659v2
+
+##### Parkinson:
+
+```
+Notes: 
+- Proxy cases are counted in cases_corrected as 1/2 case
+
+```
+
+| First Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
+|--------------|------|------|--------|---------|-----------------|----------|------|
+| Simón-Sánchez| 19915575   | 2009 | 5074   | 0       | 5074            | 8551     | 3    |
+| Nalls       | 21292315   | 2011 | 12386  | 0      | 12386            | 21026    | 11    |
+| IPDGC | 21738488   | 2011 | 50650  | 0       | 15812           | 21026    | 16   |
+| Nalls          | 25064009   | 2014 | 19061  | 0       | 19490           | 100833    | 28   |
+| Chang      | 28892059   | 2017 | 26035  | 0       | 25580           | 403190    | 44   |
+| Nalls       | 30617256   | 2019 | 37688 | 18618   | 46997           | 1400000  | 90   |
 
 
 #### 2) code...
 
 
+```
+library("data.table")
+library("ggplot2")
 
+## read in data and predict
+
+data <- read.table("lociPRojection_PD.txt", header = T)
+# OR
+data <- read.table("lociPRojection_AD.txt", header = T)
+
+### prediciton based on cases only
+modelCases <- lm(loci ~ cases, data = data)
+
+### prediction based on cases and controls
+modelCasesControls <- lm(loci ~ cases + controls, data = data)
+
+### add predictions
+data$casePredictedLoci <- predict(modelCases, data)
+data$caseControlPredictedLoci <- predict(modelCasesControls, data)
+
+## look at the data
+data
+
+## make the plot
+basicPlot <- ggplot(data, aes(cases, loci)) + geom_point() + geom_smooth(method = "lm", se = T, fullrange = T)
+formattedPlot <- basicPlot + theme_bw() + ylab("Number of Loci") + xlab("Number of Cases") + xlim(0,102000)
+exportPlot <- formattedPlot + 
+  geom_rect(xmin=60000, xmax=64000, ymin=134.276863, ymax=151.134595, fill="orange", color="orange", alpha=0.05) + 
+  geom_rect(xmin=98000, xmax=182000, ymin=198.802309, ymax=256.563617, fill="red", color="red", alpha=0.05)
+
+## save plot
+ggsave(filename = "lociPlots_AD.png", plot = exportPlot)
+
+
+## figure for twitter...
+formattedPlot <- basicPlot + theme_bw() + ylab("Number of Loci") + xlab("Number of Cases") + xlim(0,182000) + ylim(0,180)
+
+ggsave(filename = "lociPlots_for_TWITTER_AD.png", plot = formattedPlot)
+
+```
 
 
 #### 3) figures...
