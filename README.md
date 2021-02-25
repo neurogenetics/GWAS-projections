@@ -114,10 +114,20 @@ ggsave(filename = "lociPlots_AD_new.png", plot = exportPlotAD)
 #### 3) figures...
 
 
+*Parkinson:*
+
+![alt text](https://github.com/neurogenetics/GWAS-projections/blob/main/lociPlots_PD_new.png)
+
+
+
+*Alzheimer:*
+
+![alt text](https://github.com/neurogenetics/GWAS-projections/blob/main/lociPlots_AD_new.png)
 
 
 
 
-## Done....
+
+### done...
 
 ![myImage](https://media.giphy.com/media/XRB1uf2F9bGOA/giphy.gif)
