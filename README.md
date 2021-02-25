@@ -29,6 +29,7 @@ Goal: Prediction of the number of GWAS loci in future neurodegenerative disease 
 Notes: 
 - Proxy cases are counted in cases_corrected as 1/2 case
 - Of course always the discussion AD vs dementia vs proxy dementia etc. that is ignored here
+- 2019, two GWAS published a and b added based on chronological order
 
 ```
 
@@ -52,6 +53,7 @@ Notes:
 ```
 Notes: 
 - Proxy cases are counted in cases_corrected as 1/2 case
+- 2011, two GWAS published a and b added based on chronological order
 
 ```
 
