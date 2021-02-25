@@ -4,7 +4,7 @@
 Cornelis + Andy + Mike 
 
 February 2021
-Day 325 since lockdown...
+Day 346 since lockdown work from home...
 
 Goal: Prediction of the number of GWAS loci in future neurodegenerative disease GWASes (mainly focussing on the larger ones AD-PD)
 ```
