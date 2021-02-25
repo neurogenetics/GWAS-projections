@@ -106,19 +106,14 @@ formattedPlotanno <- formattedPlot + geom_text(hjust=-1, vjust=1)
 exportPlotAD <- formattedPlot + geom_text_repel(aes(label = data$year), box.padding = 2.5, size = 5, hjust = -1) 
 
 ## save plot
-ggsave(filename = "lociPlots_AD_new.png", plot = exportPlotPD)
+ggsave(filename = "lociPlots_AD_new.png", plot = exportPlotAD)
 
 ```
 
 
 #### 3) figures...
 
-Figures without annotation
 
-
-
-
-Figures with annotation (using powerpoint cause is easier)
 
 
 
