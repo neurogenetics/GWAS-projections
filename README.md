@@ -26,7 +26,7 @@ Notes:
 
 ```
 
-| First Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
+| First_Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
 |--------------|------|------|--------|---------|-----------------|----------|------|
 | Lambert      | 19734903   | 2009 | 6010   | 0       | 6010            | 8625     | 3    |
 | Harold       | 19734902   | 2009 | 5964   | 0       | 5964            | 10188    | 3    |
@@ -49,7 +49,7 @@ Notes:
 
 ```
 
-| First Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
+| First_Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
 |--------------|------|------|--------|---------|-----------------|----------|------|
 | Simón-Sánchez| 19915575   | 2009 | 5074   | 0       | 5074            | 8551     | 3    |
 | Nalls       | 21292315   | 2011 | 12386  | 0      | 12386            | 21026    | 11    |
@@ -65,6 +65,7 @@ Notes:
 ```
 library("data.table")
 library("ggplot2")
+require("ggrepel")
 
 ## read in data and predict
 
@@ -73,27 +74,28 @@ data <- read.table("lociPRojection_PD.txt", header = T)
 data <- read.table("lociPRojection_AD.txt", header = T)
 
 ### prediciton based on cases only
-modelCases <- lm(loci ~ cases, data = data)
-
-### prediction based on cases and controls
-modelCasesControls <- lm(loci ~ cases + controls, data = data)
+modelCases <- lm(loci ~ cases_corrected, data = data)
 
 ### add predictions
 data$casePredictedLoci <- predict(modelCases, data)
-data$caseControlPredictedLoci <- predict(modelCasesControls, data)
 
 ## look at the data
 data
 
-## make the plot
-basicPlot <- ggplot(data, aes(cases, loci)) + geom_point() + geom_smooth(method = "lm", se = T, fullrange = T)
-formattedPlot <- basicPlot + theme_bw() + ylab("Number of Loci") + xlab("Number of Cases") + xlim(0,102000)
-exportPlot <- formattedPlot + 
-  geom_rect(xmin=60000, xmax=64000, ymin=134.276863, ymax=151.134595, fill="orange", color="orange", alpha=0.05) + 
-  geom_rect(xmin=98000, xmax=182000, ymin=198.802309, ymax=256.563617, fill="red", color="red", alpha=0.05)
+## make the plot for PD
+basicPlot <- ggplot(data, aes(cases_corrected, loci, label=year)) + geom_point() + geom_smooth(method = "lm", se = T, fullrange = T)
+formattedPlot <- basicPlot + theme_bw() + ylab("Number of PD Loci") + xlab("Number of PD Cases") + xlim(0,102000) 
+
+formattedPlotanno <- formattedPlot + geom_text(hjust=-1, vjust=1)
+
+formattedPlotanno <- formattedPlot + geom_text(aes(label = rownames(df)),
+              size = 3.5)
+
 
 ## save plot
-ggsave(filename = "lociPlots_AD.png", plot = exportPlot)
+ggsave(filename = "lociPlots_PD.png", plot = exportPlot)
+
+
 
 
 ## figure for twitter...
