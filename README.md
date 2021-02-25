@@ -29,22 +29,22 @@ Goal: Prediction of the number of GWAS loci in future neurodegenerative disease 
 Notes: 
 - Proxy cases are counted in cases_corrected as 1/2 case
 - Of course always the discussion AD vs dementia vs proxy dementia etc. that is ignored here
+- 2011 and 2011, two GWAS published but same number of loci so is OK to leave it 
 - 2019, two GWAS published a and b added based on chronological order
 
 ```
 
 | First_Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
 |--------------|------|------|--------|---------|-----------------|----------|------|
-| Lambert      | [19734903](https://pubmed.ncbi.nlm.nih.gov/19734903/)   | 2009 | 6010   | 0       | 6010            | 8625     | 3    |
-| Harold       | 19734902   | 2009 | 5964   | 0       | 5964            | 10188    | 3    |
-| Hollingworth | 22005930   | 2011 | 19870  | 0       | 19870           | 39846    | 10   |
-| Naj          | 21460841   | 2011 | 19490  | 0       | 19490           | 36770    | 10   |
-| Lambert      | 24162737   | 2013 | 25580  | 0       | 25580           | 48466    | 19   |
-| Jansen       | 30617256   | 2019a | 24087 | 47793   | 47983           | 383378  | 29   |
-| Kunkle       | 30820047   | 2019b | 35274 | 0       | 35274           | 59163   | 25   |
-| Bellenguez   | preprint*   | 2020 | 64498 | 46828   | 87912          | 677663   | 75   |
+| Lambert      | [19734903](https://pubmed.ncbi.nlm.nih.gov/19734903/)   | 2009a | 6010   | 0       | 6010            | 8625     | 3    |
+| Harold       | [19734902](https://pubmed.ncbi.nlm.nih.gov/19734902/)   | 2009b | 5964   | 0       | 5964            | 10188    | 3    |
+| Hollingworth | [22005930](https://pubmed.ncbi.nlm.nih.gov/22005930/)   | 2011 | 19870  | 0       | 19870           | 39846    | 10   |
+| Naj          | [21460841](https://pubmed.ncbi.nlm.nih.gov/21460841/)   | 2011 | 19490  | 0       | 19490           | 36770    | 10   |
+| Lambert      | [24162737](https://pubmed.ncbi.nlm.nih.gov/24162737/)   | 2013 | 25580  | 0       | 25580           | 48466    | 19   |
+| Jansen       | [30617256](https://pubmed.ncbi.nlm.nih.gov/30617256/)   | 2019a | 24087 | 47793   | 47983           | 383378  | 29   |
+| Kunkle       | [30820047](https://pubmed.ncbi.nlm.nih.gov/30820047/)   | 2019b | 35274 | 0       | 35274           | 59163   | 25   |
+| Bellenguez   | [preprint](https://www.medrxiv.org/content/10.1101/2020.10.01.20200659v2)   | 2020 | 64498 | 46828   | 87912          | 677663   | 75   |
 
-* => medrxiv preprint... https://www.medrxiv.org/content/10.1101/2020.10.01.20200659v2
 
 		
 
@@ -59,12 +59,12 @@ Notes:
 
 | First_Author       | PMID | year | cases  | proxies | cases_corrected | controls | loci |
 |--------------|------|------|--------|---------|-----------------|----------|------|
-| Simón-Sánchez| 19915575   | 2009 | 5074   | 0       | 5074            | 8551     | 3    |
-| Nalls       | 21292315   | 2011a | 12386  | 0      | 12386            | 21026    | 11    |
-| IPDGC | 21738488   | 2011b | 50650  | 0       | 15812           | 21026    | 16   |
-| Nalls          | 25064009   | 2014 | 19061  | 0       | 19490           | 100833    | 28   |
-| Chang      | 28892059   | 2017 | 26035  | 0       | 25580           | 403190    | 44   |
-| Nalls       | 30617256   | 2019 | 37688 | 18618   | 46997           | 1400000  | 90   |
+| Simón-Sánchez| [19915575](https://pubmed.ncbi.nlm.nih.gov/19915575/)   | 2009 | 5074   | 0       | 5074            | 8551     | 3    |
+| Nalls       | [21292315](https://pubmed.ncbi.nlm.nih.gov/21292315/)   | 2011a | 12386  | 0      | 12386            | 21026    | 11    |
+| IPDGC | [21738488](https://pubmed.ncbi.nlm.nih.gov/21738488/)   | 2011b | 50650  | 0       | 15812           | 21026    | 16   |
+| Nalls          | [25064009](https://pubmed.ncbi.nlm.nih.gov/25064009/)   | 2014 | 19061  | 0       | 19490           | 100833    | 28   |
+| Chang      | [28892059](https://pubmed.ncbi.nlm.nih.gov/28892059/)   | 2017 | 26035  | 0       | 25580           | 403190    | 44   |
+| Nalls       | [30617256](https://pubmed.ncbi.nlm.nih.gov/30617256/)   | 2019 | 37688 | 18618   | 46997           | 1400000  | 90   |
 
 
 #### 2) code...
