@@ -12,15 +12,15 @@ Goal: Prediction of the number of GWAS loci in future neurodegenerative disease 
 ### Overview of this repo
 
 ```
-1) getting data...
+1) Getting data...
 
-2) code...
+2) Code...
 
-3) figures...
+3) Figures...
 ```
 
 
-#### 1) getting data...
+#### 1) Getting data...
 
 
 ##### Alzheimer:
@@ -67,7 +67,7 @@ Notes:
 | Nalls       | [30617256](https://pubmed.ncbi.nlm.nih.gov/30617256/)   | 2019 | 37688 | 18618   | 46997           | 1400000  | 90   |
 
 
-#### 2) code...
+#### 2) Code...
 
 
 ```
@@ -113,18 +113,19 @@ ggsave(filename = "lociPlots_AD_new.png", plot = exportPlotAD)
 ```
 
 
-#### 3) figures...
-
-
-*Parkinson:*
-
-![alt text](https://github.com/neurogenetics/GWAS-projections/blob/main/lociPlots_PD_new.png)
+#### 3) Figures...
 
 
 
 *Alzheimer:*
 
 ![alt text](https://github.com/neurogenetics/GWAS-projections/blob/main/lociPlots_AD_new.png)
+
+
+
+*Parkinson:*
+
+![alt text](https://github.com/neurogenetics/GWAS-projections/blob/main/lociPlots_PD_new.png)
 
 
 
